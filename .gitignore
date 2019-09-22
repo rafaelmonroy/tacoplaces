@@ -1,10 +1,15 @@
+##SERVER##
 # dependencies
 /node_modules
+
+# private
 /config
 
+# misc
 .DS_Store
 
-# client
+##CLIENT##
+# dependencies
 /client/node_modules
 /client/.pnp
 /client/.pnp.js
