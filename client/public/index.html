@@ -1,18 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-148371128-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-148371128-1');
+    </script>
+
+    <!-- META -->
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/tacoplaces-favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="TacoPlaces is a web application that locates the best taco places near you"
+      content="TacoPlaces is a web application that locates the best taco places near you."
+    />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>TacoPlaces</title>
+
+    <!-- iPhone PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="touch-icon-iphone-retina.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="167x167"
+      href="touch-icon-ipad-retina.png"
     />
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- OG META -->
+    <meta property="og:title" content="TacoPlaces" />
+    <meta
+      property="og:description"
+      content="TacoPlaces is a web application that locates the best taco places near you."
+    />
+    <meta property="og:image" content="%PUBLIC_URL%/tacoplaces-meta.png" />
+    <meta property="og:url" content="https://www.tacoplaces.com" />
 
-    <title>TacoPlaces</title>
+    <!-- TWITTER META -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TacoPlaces" />
+    <meta
+      name="twitter:description"
+      content="TacoPlaces is a web application that locates the best taco places near you."
+    />
+    <meta name="twitter:image" content="%PUBLIC_URL%/tacoplaces-meta.png" />
+    <meta name="twitter:url" content="https://www.tacoplaces.com" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

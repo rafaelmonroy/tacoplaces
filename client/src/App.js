@@ -1,17 +1,16 @@
 import React from 'react';
-import logo from './images/tacoplaces-long.png';
 import './App.css';
+import Main from './components/Main';
+//import Login from './components/Login';
 
-function App() {
-  return (
-    <div className="App">
-      <div className="welcome">
-        <img id="long-logo" src={logo} alt="tacoplaces logo" />
-        <button className="welcome-button">Sign In</button>
-        <button className="welcome-button">Sign Up</button>
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <Main />
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
