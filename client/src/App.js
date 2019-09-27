@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import Main from './components/Main';
+import Map from './components/Map';
 //import Login from './components/Login';
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Main />
+        <Map />
       </div>
     );
   }
