@@ -4,6 +4,16 @@ const router = express.Router();
 //TacoPlace model
 const TacoPlace = require('../../models/TacoPlace');
 
+//CORS
+router.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
+
 // @route GET api/tacoPlaces
 // @desp get all tacoPlaces
 // @access Public
@@ -18,10 +28,14 @@ router.get('/', (req, res) => {
 // @access Public
 router.post('/', (req, res) => {
   const newTacoPlace = new TacoPlace({
-    name: req.body.name
+    name: req.body.name,
+    address: req.body.address
   });
 
-  newTacoPlace.save().then(tacoPlace => res.json(tacoPlace));
+  newTacoPlace
+    .save()
+    .then(tacoPlace => res.json(tacoPlace))
+    .catch(err => res.send('error'));
 });
 
 module.exports = router;
