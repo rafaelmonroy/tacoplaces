@@ -1,12 +1,11 @@
 import React from 'react';
 import '../App.css';
 import GoogleMapReact from 'google-map-react';
-import Geocode from 'react-geocode';
 
 //font awesome icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-const pin = <FontAwesomeIcon icon={faMapMarkerAlt} />;
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+// const pin = <FontAwesomeIcon icon={faMapMarkerAlt} />;
 
 //google api key
 const gKey = require('../config/keys').googleKey;
@@ -30,26 +29,9 @@ class Map extends React.Component {
   };
 
   render() {
-    let latidude = 0;
-    let longitude = 0;
-
     if (this.props.data.length === 0) {
       return null;
     } else {
-      const address = this.props.data[0].address;
-      // Get latidude & longitude from address.
-      Geocode.setApiKey(gKey);
-      Geocode.fromAddress(address).then(
-        response => {
-          const { lat, lng } = response.results[0].geometry.location;
-          console.log(lat, lng);
-          latidude = lat;
-          longitude = lng;
-        },
-        error => {
-          console.error(error);
-        }
-      );
       return (
         <div style={{ height: '100vh', width: '100%' }}>
           <GoogleMapReact
@@ -57,7 +39,21 @@ class Map extends React.Component {
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
           >
-            <TacoPlace lat={latidude} lng={longitude} text={pin} />
+            <TacoPlace
+              lat={this.props.coordinates[0]}
+              lng={this.props.coordinates[1]}
+              text={this.props.data[0].name}
+            />
+            <TacoPlace
+              lat={this.props.coordinates[2]}
+              lng={this.props.coordinates[3]}
+              text={this.props.data[1].name}
+            />
+            <TacoPlace
+              lat={this.props.coordinates[4]}
+              lng={this.props.coordinates[5]}
+              text={this.props.data[2].name}
+            />
           </GoogleMapReact>
         </div>
       );
