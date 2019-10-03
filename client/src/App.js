@@ -10,8 +10,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
-      coordinates: []
+      data: []
     };
   }
 
@@ -24,29 +23,38 @@ class App extends React.Component {
     })
       .then(response => response.json())
       .then(payload => {
-        this.setState({ data: payload });
         Geocode.setApiKey(gKey);
-        for (let i = 0; i < this.state.data.length; i++) {
+        for (let i = 0; i < payload.length; i++) {
           Geocode.fromAddress(payload[i].address).then(
             response => {
               const { lat, lng } = response.results[0].geometry.location;
-              let joined = this.state.coordinates.concat(lat, lng);
-              this.setState({ coordinates: joined });
+              payload[i].coords = [lat, lng];
             },
             error => {
               console.error(error);
             }
           );
         }
+        this.setState({
+          data: payload
+        });
       });
   }
 
   render() {
-    return (
-      <div className="App">
-        <Map data={this.state.data} coordinates={this.state.coordinates} />
-      </div>
-    );
+    if (this.state.data.length === 0) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div className="App">
+          {console.log(this.state.data[0])}
+          {console.log(this.state.data[0].name)}
+          {console.log(this.state.data[0].address)}
+          {console.log(this.state.data[0].coords)}
+          <Map data={this.state.data} />
+        </div>
+      );
+    }
   }
 }
 

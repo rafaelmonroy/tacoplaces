@@ -2,10 +2,9 @@ import React from 'react';
 import '../App.css';
 import GoogleMapReact from 'google-map-react';
 
-//font awesome icons
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-// const pin = <FontAwesomeIcon icon={faMapMarkerAlt} />;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+const pin = <FontAwesomeIcon icon={faMapMarkerAlt} />;
 
 //google api key
 const gKey = require('../config/keys').googleKey;
@@ -39,21 +38,7 @@ class Map extends React.Component {
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
           >
-            <TacoPlace
-              lat={this.props.coordinates[0]}
-              lng={this.props.coordinates[1]}
-              text={this.props.data[0].name}
-            />
-            <TacoPlace
-              lat={this.props.coordinates[2]}
-              lng={this.props.coordinates[3]}
-              text={this.props.data[1].name}
-            />
-            <TacoPlace
-              lat={this.props.coordinates[4]}
-              lng={this.props.coordinates[5]}
-              text={this.props.data[2].name}
-            />
+            <TacoPlace lat={0} lng={0} text={pin} />
           </GoogleMapReact>
         </div>
       );
