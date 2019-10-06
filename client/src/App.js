@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Map from './components/Map';
-import Geocode from 'react-geocode';
 
 //google api key
 const gKey = require('./config/keys').googleKey;
@@ -15,30 +14,26 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/tacoplaces', {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      }
-    })
-      .then(response => response.json())
-      .then(payload => {
-        Geocode.setApiKey(gKey);
-        for (let i = 0; i < payload.length; i++) {
-          Geocode.fromAddress(payload[i].address).then(
-            response => {
-              const { lat, lng } = response.results[0].geometry.location;
-              payload[i].coords = [lat, lng];
-            },
-            error => {
-              console.error(error);
-            }
-          );
+    const requestData = async () => {
+      const response = await fetch('/api/tacoplaces', {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
         }
-        this.setState({
-          data: payload
-        });
       });
+      const json = await response.json();
+      const newData = await [...json];
+      for (let i = 0; i < newData.length; i++) {
+        const response = await fetch(
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${newData[i].address}&key=${gKey}`
+        );
+        const json = await response.json();
+        const { lat, lng } = json.results[0].geometry.location;
+        newData[i].coords = [lat, lng];
+      }
+      this.setState({ data: newData });
+    };
+    requestData();
   }
 
   render() {
@@ -47,10 +42,6 @@ class App extends React.Component {
     } else {
       return (
         <div className="App">
-          {console.log(this.state.data[0])}
-          {console.log(this.state.data[0].name)}
-          {console.log(this.state.data[0].address)}
-          {console.log(this.state.data[0].coords)}
           <Map data={this.state.data} />
         </div>
       );

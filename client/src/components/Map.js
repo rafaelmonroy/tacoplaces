@@ -21,8 +21,8 @@ const TacoPlace = ({ text }) => <div style={TacoPlaceStyle}>{text}</div>;
 class Map extends React.Component {
   static defaultProps = {
     center: {
-      lat: 34.040649,
-      lng: -118.19246
+      lat: 34.028121,
+      lng: -118.219146
     },
     zoom: 13
   };
@@ -38,7 +38,16 @@ class Map extends React.Component {
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
           >
-            <TacoPlace lat={0} lng={0} text={pin} />
+            {this.props.data.map(place => {
+              return (
+                <TacoPlace
+                  lat={place.coords[0]}
+                  lng={place.coords[1]}
+                  key={place._id}
+                  text={pin}
+                />
+              );
+            })}
           </GoogleMapReact>
         </div>
       );
