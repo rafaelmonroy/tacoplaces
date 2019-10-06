@@ -36,3 +36,16 @@ body {
 }
 
 /*map css*/
+#btn-location {
+  position: absolute;
+  right: 65px;
+  bottom: 24px;
+  z-index: 3;
+  padding: 6px 7px;
+  border: #df1e27 solid;
+  border-radius: 4px;
+  background-color: #fee9a7;
+  transition: 0.5s;
+  color: #df1e27;
+  font-size: 20px;
+}
