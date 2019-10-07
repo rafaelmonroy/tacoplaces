@@ -38,14 +38,13 @@ body {
 /*map css*/
 #btn-location {
   position: absolute;
-  right: 65px;
-  bottom: 24px;
-  z-index: 3;
-  padding: 6px 7px;
-  border: #df1e27 solid;
+  left: 0px;
+  top: 11px;
+  z-index: 1;
+  padding: 6px 8px;
+  border: #666 solid;
   border-radius: 4px;
-  background-color: #fee9a7;
-  transition: 0.5s;
-  color: #df1e27;
+  background-color: #fff;
+  color: #1e3edf;
   font-size: 20px;
 }

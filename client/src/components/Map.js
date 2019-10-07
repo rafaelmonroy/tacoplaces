@@ -95,16 +95,6 @@ class Map extends React.Component {
           }}
           yesIWantToUseGoogleMapApiInternals
         >
-          <MapControl
-            map={this.map || null}
-            controlPosition={
-              this.maps ? this.maps.ControlPosition.TOP_LEFT : null
-            }
-          >
-            <div id="testing">
-              <button>testing</button>
-            </div>
-          </MapControl>
           <UserLocation
             lat={this.state.userLocation.lat}
             lng={this.state.userLocation.lng}
@@ -120,6 +110,14 @@ class Map extends React.Component {
               />
             );
           })}
+          <MapControl
+            map={this.map || null}
+            controlPosition={
+              this.maps ? this.maps.ControlPosition.TOP_LEFT : null
+            }
+          >
+            <button id="btn-location">{location}</button>
+          </MapControl>
         </GoogleMapReact>
       </div>
     );
