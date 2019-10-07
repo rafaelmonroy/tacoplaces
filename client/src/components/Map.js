@@ -66,7 +66,8 @@ class Map extends React.Component {
 
   createMapOptions = maps => {
     return {
-      panControl: false,
+      panControl: true,
+      fullscreenControl: false,
       mapTypeControl: true,
       mapTypeControlOptions: {
         style: maps.MapTypeControlStyle.DROPDOWN_MENU
@@ -113,10 +114,15 @@ class Map extends React.Component {
           <MapControl
             map={this.map || null}
             controlPosition={
-              this.maps ? this.maps.ControlPosition.TOP_LEFT : null
+              this.maps ? this.maps.ControlPosition.RIGHT_BOTTOM : null
             }
           >
-            <button id="btn-location">{location}</button>
+            <button
+              id="btn-location"
+              onClick={() => this.map.panTo(this.state.userLocation)}
+            >
+              {location}
+            </button>
           </MapControl>
         </GoogleMapReact>
       </div>
