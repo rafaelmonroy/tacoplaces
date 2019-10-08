@@ -1,14 +1,15 @@
 body {
   margin: 0;
-  background-color: #fee9a7;
+  background-color: #fff;
 }
 
 .App {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  font-family: sans-serif;
 }
 
 /*sign up css*/
@@ -42,9 +43,65 @@ body {
   bottom: 10px;
   z-index: 1;
   padding: 6px 8px;
-  border: #666 solid;
+  border: #df1f27 solid;
   border-radius: 4px;
   background-color: #fff;
-  color: #1e3edf;
+  color: #df1f27;
   font-size: 20px;
+}
+
+/*header bar css*/
+.header-bar {
+  background-color: #fee9a7;
+  border-bottom: #df1f27 solid 5px;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#long-logo-main {
+  width: 200px;
+  padding: 10px;
+  grid-column-start: 2;
+}
+
+#sign-out {
+  align-self: center;
+  justify-self: end;
+  font-size: 12px;
+  margin-right: 10px;
+  border: #df1f27 solid 0.5px;
+  color: #fee9a7;
+  padding: 2px 4px;
+  background-color: #df1f27;
+  border-radius: 5px;
+}
+
+/*navbar css*/
+.Navbar {
+  border-top: #df1f27 solid 5px;
+  align-self: flex-end;
+  background-color: #fee9a7;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  list-style-type: none;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.nav-icons {
+  font-size: 25px;
+  color: #df1f27;
+  text-decoration: none;
 }
