@@ -63,6 +63,7 @@ body {
   width: 200px;
   padding: 10px;
   grid-column-start: 2;
+  justify-self: center;
 }
 
 #sign-out {

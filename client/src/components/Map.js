@@ -68,15 +68,13 @@ class Map extends React.Component {
     return {
       panControl: true,
       fullscreenControl: false,
-      mapTypeControl: true,
-      mapTypeControlOptions: {
-        style: maps.MapTypeControlStyle.DROPDOWN_MENU
-      },
       streetViewControl: true
     };
   };
 
   render() {
+    const hoverStyle = this.props.$hover;
+
     return (
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
@@ -95,6 +93,9 @@ class Map extends React.Component {
             this.setState({ mapControlShouldRender: true });
           }}
           yesIWantToUseGoogleMapApiInternals
+          onChildClick={(key, childProps) => {
+            console.log(childProps.name);
+          }}
         >
           <UserLocation
             lat={this.state.userLocation.lat}
@@ -104,8 +105,10 @@ class Map extends React.Component {
           {this.props.data.map(place => {
             return (
               <TacoPlace
+                style={hoverStyle}
                 lat={place.coords[0]}
                 lng={place.coords[1]}
+                name={place.name}
                 key={place._id}
                 text={pin}
               />
