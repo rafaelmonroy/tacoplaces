@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../images/tacoplaces-long.png';
+import logo from '../images/tacoplaces-black-long.png';
 
 function HeaderBar() {
   return (

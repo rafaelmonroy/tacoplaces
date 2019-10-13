@@ -8,33 +8,28 @@ import {
   faMapMarkerAlt,
   faLocationArrow
 } from '@fortawesome/free-solid-svg-icons';
-import { faDotCircle } from '@fortawesome/free-regular-svg-icons';
+
+import TacoPlace from './TacoPlace';
 
 const pin = <FontAwesomeIcon icon={faMapMarkerAlt} />;
-const dot = <FontAwesomeIcon icon={faDotCircle} />;
 const location = <FontAwesomeIcon icon={faLocationArrow} />;
 
 //google api key
 const gKey = require('../config/keys').googleKey;
 
-//center the marker
-const TacoPlaceStyle = {
-  position: 'absolute',
-  transform: 'translate(-50%, -100%)',
-  fontSize: '30px',
-  color: 'red'
-};
+//user marker and style
+const UserLocation = ({ text }) => <div style={UserLocationStyle}>{text}</div>;
 
 const UserLocationStyle = {
   position: 'absolute',
   transform: 'translate(-50%, -50%)',
-  fontSize: '30px',
-  color: 'blue'
+  height: '9px',
+  width: '9px',
+  backgroundColor: '#4285F4',
+  border: 'solid #fff 2px',
+  borderRadius: '50%',
+  boxShadow: 'rgba(6, 126, 255, 0.2) 0px 0px 0px 5px'
 };
-
-//map marker
-const TacoPlace = ({ text }) => <div style={TacoPlaceStyle}>{text}</div>;
-const UserLocation = ({ text }) => <div style={UserLocationStyle}>{text}</div>;
 
 class Map extends React.Component {
   constructor(props) {
@@ -73,8 +68,6 @@ class Map extends React.Component {
   };
 
   render() {
-    const hoverStyle = this.props.$hover;
-
     return (
       <div style={{ height: '100vh', width: '100%' }}>
         <GoogleMapReact
@@ -96,16 +89,15 @@ class Map extends React.Component {
           onChildClick={(key, childProps) => {
             console.log(childProps.name);
           }}
+          hoverDistance={30}
         >
           <UserLocation
             lat={this.state.userLocation.lat}
             lng={this.state.userLocation.lng}
-            text={dot}
           />
           {this.props.data.map(place => {
             return (
               <TacoPlace
-                style={hoverStyle}
                 lat={place.coords[0]}
                 lng={place.coords[1]}
                 name={place.name}
