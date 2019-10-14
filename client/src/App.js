@@ -3,9 +3,14 @@ import './App.css';
 import Map from './components/Map';
 import Navbar from './components/Navbar';
 import HeaderBar from './components/HeaderBar';
+import AddTacoPlace from './components/AddTacoPlace';
+import List from './components/List';
+import Questions from './components/Questions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const spinner = <FontAwesomeIcon icon={faSpinner} />;
 
@@ -57,11 +62,28 @@ class App extends React.Component {
       );
     } else {
       return (
-        <div className="App">
-          <HeaderBar />
-          <Map data={this.state.data} />
-          <Navbar />
-        </div>
+        <Router>
+          <div className="App">
+            <HeaderBar />
+
+            <Switch>
+              <Route path="/">
+                <Map data={this.state.data} />
+              </Route>
+              <Route path="/add">
+                <AddTacoPlace />
+              </Route>
+              <Route path="/list">
+                <List />
+              </Route>
+              <Route path="/questions">
+                <Questions />
+              </Route>
+            </Switch>
+
+            <Navbar />
+          </div>
+        </Router>
       );
     }
   }
