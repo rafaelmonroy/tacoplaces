@@ -49,43 +49,35 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.data.length === 0) {
-      return (
+    return (
+      <Router>
         <div className="App">
           <HeaderBar />
-          <div>
-            <div style={{ fontSize: '20px' }}>{spinner} loading...</div>
-          </div>
+          <Switch>
+            <Route exact path="/">
+              {this.state.data.length === 0 ? (
+                <div style={{ fontSize: '20px', color: '#df1f27' }}>
+                  {spinner} loading...
+                </div>
+              ) : (
+                <Map data={this.state.data} />
+              )}
+            </Route>
+            <Route path="/add">
+              <AddTacoPlace />
+            </Route>
+            <Route path="/list">
+              <List data={this.state.data} />
+            </Route>
+            <Route path="/questions">
+              <Questions />
+            </Route>
+          </Switch>
 
           <Navbar />
         </div>
-      );
-    } else {
-      return (
-        <Router>
-          <div className="App">
-            <HeaderBar />
-
-            <Switch>
-              <Route path="/">
-                <Map data={this.state.data} />
-              </Route>
-              <Route path="/add">
-                <AddTacoPlace />
-              </Route>
-              <Route path="/list">
-                <List />
-              </Route>
-              <Route path="/questions">
-                <Questions />
-              </Route>
-            </Switch>
-
-            <Navbar />
-          </div>
-        </Router>
-      );
-    }
+      </Router>
+    );
   }
 }
 

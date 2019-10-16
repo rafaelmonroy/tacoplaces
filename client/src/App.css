@@ -1,6 +1,7 @@
 body {
   margin: 0;
   background-color: #fff;
+  overscroll-behavior: none;
 }
 
 .App {
@@ -8,7 +9,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   font-family: sans-serif;
 }
 
@@ -44,14 +44,14 @@ body {
   z-index: 1;
   padding: 7px 9px;
   border-radius: 4px;
-  background-color: #000;
+  background-color: #121212;
   color: #df1f27;
   font-size: 20px;
 }
 
 /*header bar css*/
 .header-bar {
-  background-color: #000;
+  background-color: #121212;
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -70,7 +70,7 @@ body {
   font-size: 12px;
   margin-right: 10px;
   border: #df1f27 solid 0.5px;
-  color: #000;
+  color: #fff;
   padding: 2px 4px;
   background-color: #df1f27;
   border-radius: 5px;
@@ -79,10 +79,10 @@ body {
 /*navbar css*/
 .Navbar {
   align-self: flex-end;
-  background-color: #000;
+  background-color: #121212;
 }
 
-ul {
+#menu {
   display: flex;
   justify-content: space-between;
   width: 100vw;
@@ -92,7 +92,7 @@ ul {
   padding: 0px;
 }
 
-li {
+.menu-list {
   display: block;
   overflow: hidden;
   padding: 10px;
@@ -102,4 +102,35 @@ li {
   font-size: 25px;
   color: #fff;
   text-decoration: none;
+}
+
+a:hover {
+  color: #df1f27;
+}
+
+.active {
+  color: #df1f27;
+}
+
+/*list page css*/
+#list-items {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  border-bottom: #121212 solid;
+  margin-bottom: 10px;
+}
+
+.list-item {
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.list-titles {
+  font-weight: 900;
+  color: #df1f27;
 }
