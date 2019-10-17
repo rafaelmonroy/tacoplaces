@@ -56,8 +56,9 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/">
               {this.state.data.length === 0 ? (
-                <div style={{ fontSize: '20px', color: '#df1f27' }}>
-                  {spinner} loading...
+                <div className="loading-container">
+                  <div className="spin">{spinner}</div>
+                  <div> &nbsp; loading...</div>
                 </div>
               ) : (
                 <Map data={this.state.data} />

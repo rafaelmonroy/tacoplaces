@@ -69,7 +69,7 @@ class Map extends React.Component {
 
   render() {
     return (
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div style={{ height: 'auto', width: '100%' }}>
         <GoogleMapReact
           options={this.createMapOptions}
           bootstrapURLKeys={{ key: gKey }}

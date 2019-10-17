@@ -4,7 +4,7 @@ export class Questions extends Component {
   render() {
     return (
       <div>
-        <h1>This is the Questions Page</h1>
+        <h1 className="page-title">Questions</h1>
       </div>
     );
   }

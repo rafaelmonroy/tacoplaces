@@ -1,15 +1,17 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+}
+body {
   background-color: #fff;
   overscroll-behavior: none;
 }
 
 .App {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   font-family: sans-serif;
+  display: grid;
+  grid-template-rows: 50px auto 50px;
 }
 
 /*sign up css*/
@@ -36,6 +38,35 @@ body {
   width: 300px;
 }
 
+/*loading css*/
+.loading-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: #df1f27;
+}
+
+.spin {
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /*map css*/
 #btn-location {
   position: absolute;
@@ -55,6 +86,8 @@ body {
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  position: sticky;
+  top: 0;
 }
 
 #long-logo-main {
@@ -62,6 +95,7 @@ body {
   padding: 10px;
   grid-column-start: 2;
   justify-self: center;
+  align-self: center;
 }
 
 #sign-out {
@@ -78,13 +112,16 @@ body {
 
 /*navbar css*/
 .Navbar {
-  align-self: flex-end;
   background-color: #121212;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  bottom: -0.3px;
 }
 
 #menu {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100vw;
   list-style-type: none;
   overflow: hidden;
@@ -95,7 +132,6 @@ body {
 .menu-list {
   display: block;
   overflow: hidden;
-  padding: 10px;
 }
 
 .nav-icons {
@@ -112,25 +148,40 @@ a:hover {
   color: #df1f27;
 }
 
-/*list page css*/
-#list-items {
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  overflow: hidden;
-  margin: 0px;
-  padding: 0px;
-  border-bottom: #121212 solid;
-  margin-bottom: 10px;
+/*all pages css*/
+.page-title {
+  text-align: center;
 }
 
-.list-item {
-  display: block;
-  overflow: hidden;
+/*list page css*/
+.tacoplace {
+  display: flex;
+  flex-direction: column;
+  border-bottom: #121212 solid;
+}
+
+.place-info {
   padding: 10px;
 }
 
-.list-titles {
+.place-info.name {
+  color: #1f3fdf;
   font-weight: 900;
+  font-size: 23px;
+}
+.ratings-details {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.ratings {
   color: #df1f27;
+  margin-right: 20px;
+}
+
+.details {
+  color: #fff;
+  padding: 4px;
+  background-color: #df1f27;
 }
