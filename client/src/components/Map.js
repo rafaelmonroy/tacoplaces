@@ -35,7 +35,8 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userLocation: {}
+      userLocation: {},
+      show: false
     };
   }
   static defaultProps = {
@@ -86,8 +87,11 @@ class Map extends React.Component {
             this.setState({ mapControlShouldRender: true });
           }}
           yesIWantToUseGoogleMapApiInternals
-          onChildClick={(key, childProps) => {
-            console.log(childProps.name);
+          onChildMouseEnter={(key, childProps) => {
+            this.setState({ show: true });
+          }}
+          onChildMouseLeave={(key, childProps) => {
+            this.setState({ show: false });
           }}
           hoverDistance={30}
         >
@@ -98,11 +102,13 @@ class Map extends React.Component {
           {this.props.data.map(place => {
             return (
               <TacoPlace
+                data={place}
                 lat={place.coords[0]}
                 lng={place.coords[1]}
                 name={place.name}
                 key={place._id}
                 text={pin}
+                show={this.state.show}
               />
             );
           })}

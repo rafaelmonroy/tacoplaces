@@ -18,6 +18,23 @@ export default class TacoPlace extends React.Component {
 
     const style = this.props.$hover ? TacoPlaceStyleHover : TacoPlaceStyle;
 
-    return <div style={style}>{this.props.text}</div>;
+    return (
+      <React.Fragment>
+        <div style={style}>{this.props.text}</div>
+        {/* Below is info window component */}
+        {this.props.show && this.props.data._id ? (
+          <div
+            style={{
+              width: 80,
+              height: 30,
+              backgroundColor: '#fff',
+              borderRadius: '5px'
+            }}
+          >
+            {this.props.data.name}
+          </div>
+        ) : null}
+      </React.Fragment>
+    );
   }
 }
