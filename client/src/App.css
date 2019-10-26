@@ -80,6 +80,29 @@ body {
   font-size: 20px;
 }
 
+.info-window {
+  color: #df1f27;
+  font-size: 13px;
+  background: black;
+  border: 1px solid #df1f27;
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.info-window-details {
+  color: #df1f27;
+  padding: 1px;
+  background-color: #fff;
+  border-radius: 0px;
+  display: block;
+  border: 0px;
+  text-decoration: none;
+}
+
 /*header bar css*/
 .header-bar {
   background-color: #121212;
@@ -180,8 +203,14 @@ a:hover {
   margin-right: 20px;
 }
 
-.details {
+.list-view-details {
   color: #fff;
   padding: 4px;
   background-color: #df1f27;
+  text-decoration: none;
+}
+
+.list-view-details:hover {
+  color: #fff;
+  background-color: #000;
 }

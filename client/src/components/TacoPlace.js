@@ -1,18 +1,6 @@
 import React from 'react';
 
 export default class TacoPlace extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: false
-    };
-  }
-
-  showInfoWindow = () => {
-    this.setState({ show: !this.state.show });
-    console.log(this.props);
-  };
-
   render() {
     const TacoPlaceStyle = {
       position: 'absolute',
@@ -34,16 +22,12 @@ export default class TacoPlace extends React.Component {
       <React.Fragment>
         <div style={style}>{this.props.text}</div>
         {/* Below is info window component */}
-        {this.state.show && (
-          <div
-            style={{
-              width: 80,
-              height: 30,
-              backgroundColor: '#fff',
-              borderRadius: '5px'
-            }}
-          >
+        {this.props.ID === this.props.data._id && (
+          <div className="info-window">
             {this.props.data.name}
+            <a className="info-window-details" href="/">
+              View Full Details
+            </a>
           </div>
         )}
       </React.Fragment>

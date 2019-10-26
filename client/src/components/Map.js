@@ -35,7 +35,8 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userLocation: {}
+      userLocation: {},
+      ID: null
     };
     this.tacoPlaceElement = React.createRef();
   }
@@ -88,9 +89,9 @@ class Map extends React.Component {
           }}
           yesIWantToUseGoogleMapApiInternals
           onChildClick={(key, childProps) => {
-            this.tacoPlaceElement.current.showInfoWindow();
-            console.log(childProps);
+            this.setState({ ID: key });
           }}
+          onClick={() => this.setState({ ID: null })}
           hoverDistance={30}
         >
           <UserLocation
@@ -106,7 +107,7 @@ class Map extends React.Component {
                 name={place.name}
                 key={place._id}
                 text={pin}
-                ref={this.tacoPlaceElement}
+                ID={this.state.ID}
               />
             );
           })}

@@ -29,7 +29,9 @@ export class List extends Component {
                     {star}
                     {star}
                   </p>
-                  <button className="details">View Full Details</button>
+                  <a href="/" className="list-view-details">
+                    View Full Details
+                  </a>
                 </div>
               </div>
             );
