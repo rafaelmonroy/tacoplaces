@@ -1,16 +1,17 @@
 import React from 'react';
 import './App.css';
-import Map from './components/Map';
-import Navbar from './components/Navbar';
-import HeaderBar from './components/HeaderBar';
-import AddTacoPlace from './components/AddTacoPlace';
-import List from './components/List';
+import Map from './components/pages/Map';
+import Navbar from './components/header-n-navbar/Navbar';
+import HeaderBar from './components/header-n-navbar/HeaderBar';
+import AddTacoPlace from './components/pages/AddTacoPlace';
+import List from './components/pages/List';
+import Info from './components/pages/Info';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import TacoPlace from './components/TacoPlace';
+import TacoPlace from './components/pages/TacoPlace';
 
 const spinner = <FontAwesomeIcon icon={faSpinner} />;
 
@@ -72,6 +73,9 @@ class App extends React.Component {
             </Route>
             <Route path="/tacoplace">
               <TacoPlace data={this.state.data} />
+            </Route>
+            <Route path="/info">
+              <Info />
             </Route>
           </Switch>
 

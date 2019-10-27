@@ -1,7 +1,7 @@
 import React from 'react';
-import '../App.css';
+import '../../App.css';
 import GoogleMapReact from 'google-map-react';
-import MapControl from './MapControl';
+import MapControl from '../markers-n-controls/MapControl';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,13 +9,13 @@ import {
   faLocationArrow
 } from '@fortawesome/free-solid-svg-icons';
 
-import TacoPlaceMarker from './TacoPlaceMarker';
+import TacoPlaceMarker from '../markers-n-controls/TacoPlaceMarker';
 
 const pin = <FontAwesomeIcon icon={faMapMarkerAlt} />;
 const location = <FontAwesomeIcon icon={faLocationArrow} />;
 
 //google api key
-const gKey = require('../config/keys').googleKey;
+const gKey = require('../../config/keys').googleKey;
 
 //user marker and style
 const UserLocation = ({ text }) => <div style={UserLocationStyle}>{text}</div>;

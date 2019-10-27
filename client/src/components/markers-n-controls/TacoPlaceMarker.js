@@ -12,14 +12,15 @@ export default class TacoPlaceMarker extends React.Component {
       position: 'absolute',
       transform: 'translate(-50%, -100%)',
       cursor: 'pointer',
-      fontSize: '25px',
+      fontSize: '28px',
       color: '#df1f27',
-      transition: 'font-size .3s ease 0s'
+      transition: 'font-size .3s ease 0s',
+      zIndex: -1
     };
 
     const TacoPlaceStyleHover = {
       ...TacoPlaceStyle,
-      fontSize: '40px'
+      fontSize: '35px'
     };
 
     const style = this.props.$hover ? TacoPlaceStyleHover : TacoPlaceStyle;
