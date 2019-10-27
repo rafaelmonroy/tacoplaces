@@ -9,7 +9,7 @@ import {
   faLocationArrow
 } from '@fortawesome/free-solid-svg-icons';
 
-import TacoPlace from './TacoPlace';
+import TacoPlaceMarker from './TacoPlaceMarker';
 
 const pin = <FontAwesomeIcon icon={faMapMarkerAlt} />;
 const location = <FontAwesomeIcon icon={faLocationArrow} />;
@@ -100,7 +100,7 @@ class Map extends React.Component {
           />
           {this.props.data.map(place => {
             return (
-              <TacoPlace
+              <TacoPlaceMarker
                 data={place}
                 lat={place.coords[0]}
                 lng={place.coords[1]}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faStar } from '@fortawesome/free-solid-svg-icons';
-
+import { NavLink } from 'react-router-dom';
 const spinner = <FontAwesomeIcon icon={faSpinner} />;
 const star = <FontAwesomeIcon icon={faStar} />;
 
@@ -29,9 +29,9 @@ export class List extends Component {
                     {star}
                     {star}
                   </p>
-                  <a href="/" className="list-view-details">
+                  <NavLink to="/tacoplace" className="list-view-details">
                     View Full Details
-                  </a>
+                  </NavLink>
                 </div>
               </div>
             );

@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPlusSquare,
   faMapMarkerAlt,
-  faList
+  faList,
+  faStore
 } from '@fortawesome/free-solid-svg-icons';
-import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 import { NavLink } from 'react-router-dom';
@@ -13,7 +13,7 @@ import { NavLink } from 'react-router-dom';
 const plus = <FontAwesomeIcon icon={faPlusSquare} />;
 const map = <FontAwesomeIcon icon={faMapMarkerAlt} />;
 const list = <FontAwesomeIcon icon={faList} />;
-const question = <FontAwesomeIcon icon={faQuestionCircle} />;
+const profile = <FontAwesomeIcon icon={faStore} />;
 const ig = <FontAwesomeIcon icon={faInstagram} />;
 
 class Navbar extends React.Component {
@@ -27,8 +27,8 @@ class Navbar extends React.Component {
             </NavLink>
           </li>
           <li className="menu-list">
-            <NavLink to="/questions" className="nav-icons">
-              {question}
+            <NavLink to="/tacoplace" className="nav-icons">
+              {profile}
             </NavLink>
           </li>
           <li className="menu-list">

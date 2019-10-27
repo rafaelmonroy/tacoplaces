@@ -81,16 +81,18 @@ body {
 }
 
 .info-window {
-  color: #df1f27;
+  color: #fff;
   font-size: 13px;
   background: black;
-  border: 1px solid #df1f27;
+  border: 1px solid #000;
   width: 100px;
-  height: 35px;
+  height: 40px;
   border-radius: 5px;
   overflow: hidden;
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr auto;
   align-items: center;
+  text-align: center;
 }
 
 .info-window-details {
@@ -98,9 +100,12 @@ body {
   padding: 1px;
   background-color: #fff;
   border-radius: 0px;
-  display: block;
+  height: 100%;
+  width: 100%;
   border: 0px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 /*header bar css*/

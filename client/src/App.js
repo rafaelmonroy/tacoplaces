@@ -5,12 +5,12 @@ import Navbar from './components/Navbar';
 import HeaderBar from './components/HeaderBar';
 import AddTacoPlace from './components/AddTacoPlace';
 import List from './components/List';
-import Questions from './components/Questions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import TacoPlace from './components/TacoPlace';
 
 const spinner = <FontAwesomeIcon icon={faSpinner} />;
 
@@ -70,8 +70,8 @@ class App extends React.Component {
             <Route path="/list">
               <List data={this.state.data} />
             </Route>
-            <Route path="/questions">
-              <Questions />
+            <Route path="/tacoplace">
+              <TacoPlace data={this.state.data} />
             </Route>
           </Switch>
 

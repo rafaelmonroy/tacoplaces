@@ -1,36 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-export default class TacoPlace extends React.Component {
+const spinner = <FontAwesomeIcon icon={faSpinner} />;
+
+export default class TacoPlace extends Component {
   render() {
-    const TacoPlaceStyle = {
-      position: 'absolute',
-      transform: 'translate(-50%, -100%)',
-      cursor: 'pointer',
-      fontSize: '25px',
-      color: '#df1f27',
-      transition: 'font-size .3s ease 0s'
-    };
-
-    const TacoPlaceStyleHover = {
-      ...TacoPlaceStyle,
-      fontSize: '40px'
-    };
-
-    const style = this.props.$hover ? TacoPlaceStyleHover : TacoPlaceStyle;
-
     return (
-      <React.Fragment>
-        <div style={style}>{this.props.text}</div>
-        {/* Below is info window component */}
-        {this.props.ID === this.props.data._id && (
-          <div className="info-window">
-            {this.props.data.name}
-            <a className="info-window-details" href="/">
-              View Full Details
-            </a>
+      <div>
+        {this.props.data.length === 0 ? (
+          <div className="loading-container">
+            <div className="spin">{spinner}</div>
+            <div> &nbsp; loading...</div>
+          </div>
+        ) : (
+          <div className="tacoplace-profile">
+            <div>TacoPlace Profile Goes Here</div>
           </div>
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }
