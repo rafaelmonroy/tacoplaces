@@ -23,11 +23,11 @@ export default class TacoPlace extends Component {
             {this.props.data.map(place => {
               if (place._id === this.props.profileID) {
                 return (
-                  <div className="profile-content">
-                    <h1>{place.name}</h1>
+                  <div className="profile-content" key={place._id}>
+                    <h1 className="profile-title">{place.name}</h1>
                     <div className="image-container">image</div>
-                    <p>{place.address}</p>
-                    <button>GET DIRECTIONS</button>
+                    <p className="profile-address">{place.address}</p>
+                    <button className="directions">GET DIRECTIONS</button>
                     <p className="profile-ratings">
                       {star}
                       {star}
@@ -35,8 +35,9 @@ export default class TacoPlace extends Component {
                       {star}
                       {star}
                     </p>
-                    <p>REVIEWS</p>
-                    <p>Review this TacoPlace</p>
+                    <p className="reviews-title">REVIEWS</p>
+                    <span className="no-reviews">no reviews yet</span>
+                    <p className="leave-review">Review this TacoPlace</p>
                   </div>
                 );
               } else return null;
