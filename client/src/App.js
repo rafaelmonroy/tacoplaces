@@ -22,7 +22,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      profileID: null
     };
   }
 
@@ -49,6 +50,10 @@ class App extends React.Component {
     requestData();
   }
 
+  getInfo = id => {
+    this.setState({ profileID: id });
+  };
+
   render() {
     return (
       <Router>
@@ -62,17 +67,20 @@ class App extends React.Component {
                   <div> &nbsp; loading...</div>
                 </div>
               ) : (
-                <Map data={this.state.data} />
+                <Map data={this.state.data} getInfo={this.getInfo} />
               )}
             </Route>
             <Route path="/add">
               <AddTacoPlace />
             </Route>
             <Route path="/list">
-              <List data={this.state.data} />
+              <List data={this.state.data} getInfo={this.getInfo} />
             </Route>
             <Route path="/tacoplace">
-              <TacoPlace data={this.state.data} />
+              <TacoPlace
+                data={this.state.data}
+                profileID={this.state.profileID}
+              />
             </Route>
             <Route path="/info">
               <Info />

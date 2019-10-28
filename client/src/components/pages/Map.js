@@ -38,7 +38,6 @@ class Map extends React.Component {
       userLocation: {},
       ID: null
     };
-    this.tacoPlaceElement = React.createRef();
   }
   static defaultProps = {
     center: {
@@ -108,6 +107,7 @@ class Map extends React.Component {
                 key={place._id}
                 text={pin}
                 ID={this.state.ID}
+                getInfo={this.props.getInfo}
               />
             );
           })}

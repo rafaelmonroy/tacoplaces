@@ -1,3 +1,6 @@
+/*************************************/
+/**************   MAIN   *************/
+/*************************************/
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +17,9 @@ body {
   grid-template-rows: 50px auto 50px;
 }
 
-/*sign up css*/
+/*************************************/
+/************  SIGN UP   *************/
+/*************************************/
 #long-logo {
   width: 300px;
   margin-bottom: 11px;
@@ -38,7 +43,81 @@ body {
   width: 300px;
 }
 
-/*loading css*/
+/*************************************/
+/**********   HEADER BAR    **********/
+/*************************************/
+.header-bar {
+  background-color: #121212;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: sticky;
+  top: 0;
+}
+
+#long-logo-main {
+  width: 200px;
+  padding: 10px;
+  grid-column-start: 2;
+  justify-self: center;
+  align-self: center;
+}
+
+#sign-out {
+  align-self: center;
+  justify-self: end;
+  font-size: 12px;
+  margin-right: 10px;
+  border: #df1f27 solid 0.5px;
+  color: #fff;
+  padding: 2px 4px;
+  background-color: #df1f27;
+  border-radius: 5px;
+}
+
+/*************************************/
+/***********   NAVBAR   **************/
+/*************************************/
+.Navbar {
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  bottom: -0.3px;
+}
+
+#menu {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  list-style-type: none;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+
+.menu-list {
+  display: block;
+  overflow: hidden;
+}
+
+.nav-icons {
+  font-size: 25px;
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #df1f27;
+}
+
+.active {
+  color: #df1f27;
+}
+
+/*************************************/
+/************  LOADING  **************/
+/*************************************/
 .loading-container {
   height: 100%;
   display: flex;
@@ -67,7 +146,92 @@ body {
   }
 }
 
-/*map css*/
+/*************************************/
+/*************   LIST   **************/
+/*************************************/
+.tacoplace {
+  display: flex;
+  flex-direction: column;
+  border-bottom: #121212 solid;
+}
+
+.place-info {
+  padding: 10px;
+}
+
+.place-info.name {
+  color: #1f3fdf;
+  font-weight: 900;
+  font-size: 23px;
+}
+.ratings-details {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.ratings {
+  color: #df1f27;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.list-view-details {
+  color: #fff;
+  padding: 4px;
+  background-color: #df1f27;
+  text-decoration: none;
+}
+
+.list-view-details:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/*************************************/
+/***********   TACOPLACE   ***********/
+/*************************************/
+.none-selected {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #df1f27;
+  font-weight: bolder;
+}
+
+.tacoplace-profile {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.image-container {
+  height: 200px;
+  width: 200px;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.profile-ratings {
+  color: #df1f27;
+  text-align: center;
+}
+
+/*************************************/
+/***************  MAP  ***************/
+/*************************************/
 #btn-location {
   position: absolute;
   right: 9px;
@@ -124,122 +288,19 @@ body {
   align-items: center;
 }
 
-/*header bar css*/
-.header-bar {
-  background-color: #121212;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  position: sticky;
-  top: 0;
-}
-
-#long-logo-main {
-  width: 200px;
-  padding: 10px;
-  grid-column-start: 2;
-  justify-self: center;
-  align-self: center;
-}
-
-#sign-out {
-  align-self: center;
-  justify-self: end;
-  font-size: 12px;
-  margin-right: 10px;
-  border: #df1f27 solid 0.5px;
-  color: #fff;
-  padding: 2px 4px;
-  background-color: #df1f27;
-  border-radius: 5px;
-}
-
-/*navbar css*/
-.Navbar {
-  background-color: #121212;
-  display: flex;
-  align-items: center;
-  position: sticky;
-  bottom: -0.3px;
-}
-
-#menu {
-  display: flex;
-  justify-content: space-around;
-  width: 100vw;
-  list-style-type: none;
-  overflow: hidden;
-  margin: 0px;
-  padding: 0px;
-}
-
-.menu-list {
-  display: block;
-  overflow: hidden;
-}
-
-.nav-icons {
-  font-size: 25px;
-  color: #fff;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #df1f27;
-}
-
-.active {
-  color: #df1f27;
-}
-
-/*list page css*/
-.tacoplace {
-  display: flex;
-  flex-direction: column;
-  border-bottom: #121212 solid;
-}
-
-.place-info {
-  padding: 10px;
-}
-
-.place-info.name {
-  color: #1f3fdf;
-  font-weight: 900;
-  font-size: 23px;
-}
-.ratings-details {
-  display: flex;
-  padding: 10px;
-  align-items: center;
-}
-
-.ratings {
-  color: #df1f27;
-  margin-right: 20px;
-}
-
-.list-view-details {
-  color: #fff;
-  padding: 4px;
-  background-color: #df1f27;
-  text-decoration: none;
-}
-
-.list-view-details:hover {
-  color: #fff;
-  background-color: #000;
-}
-
-/*tacoplace page css*/
-.tacoplace-profile {
+/*************************************/
+/**************   ADD   **************/
+/*************************************/
+.add-page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 
-/*info page css*/
+/*************************************/
+/*************   INFO   **************/
+/*************************************/
 .info-page {
   padding: 10px 15px;
 }
@@ -282,12 +343,4 @@ span {
 .contact:hover {
   background-color: #000;
   color: #fff;
-}
-
-/*add page css*/
-.add-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
 }

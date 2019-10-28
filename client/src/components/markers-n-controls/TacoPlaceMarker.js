@@ -32,7 +32,11 @@ export default class TacoPlaceMarker extends React.Component {
         {this.props.ID === this.props.data._id && (
           <div className="info-window">
             <p>{this.props.data.name}</p>
-            <NavLink className="info-window-details" to="/tacoplace">
+            <NavLink
+              className="info-window-details"
+              to="/tacoplace"
+              onClick={() => this.props.getInfo(this.props.data._id)}
+            >
               {arrow}
             </NavLink>
           </div>

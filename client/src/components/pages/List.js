@@ -29,7 +29,11 @@ export class List extends Component {
                     {star}
                     {star}
                   </p>
-                  <NavLink to="/tacoplace" className="list-view-details">
+                  <NavLink
+                    to="/tacoplace"
+                    className="list-view-details"
+                    onClick={() => this.props.getInfo(place._id)}
+                  >
                     View Full Details
                   </NavLink>
                 </div>
