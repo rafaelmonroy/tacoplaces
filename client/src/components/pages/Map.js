@@ -18,24 +18,15 @@ const location = <FontAwesomeIcon icon={faLocationArrow} />;
 const gKey = require('../../config/keys').googleKey;
 
 //user marker and style
-const UserLocation = ({ text }) => <div style={UserLocationStyle}>{text}</div>;
+const UserLocation = ({ text }) => <div className="user-location">{text}</div>;
 
-const UserLocationStyle = {
-  position: 'absolute',
-  transform: 'translate(-50%, -50%)',
-  height: '9px',
-  width: '9px',
-  backgroundColor: '#4285F4',
-  border: 'solid #fff 2px',
-  borderRadius: '50%',
-  boxShadow: 'rgba(6, 126, 255, 0.2) 0px 0px 0px 5px'
-};
+const NoUserLocation = ({ text }) => <div>{text}</div>;
 
 class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userLocation: {},
+      userLocation: null,
       ID: null
     };
   }
@@ -75,10 +66,6 @@ class Map extends React.Component {
           options={this.createMapOptions}
           bootstrapURLKeys={{ key: gKey }}
           defaultCenter={this.props.center}
-          center={{
-            lat: this.state.userLocation.lat,
-            lng: this.state.userLocation.lng
-          }}
           defaultZoom={this.props.zoom}
           onGoogleApiLoaded={({ map, maps }) => {
             this.map = map;
@@ -93,10 +80,14 @@ class Map extends React.Component {
           onClick={() => this.setState({ ID: null })}
           hoverDistance={30}
         >
-          <UserLocation
-            lat={this.state.userLocation.lat}
-            lng={this.state.userLocation.lng}
-          />
+          {this.state.userLocation === null ? (
+            <NoUserLocation></NoUserLocation>
+          ) : (
+            <UserLocation
+              lat={this.state.userLocation.lat}
+              lng={this.state.userLocation.lng}
+            />
+          )}
           {this.props.data.map(place => {
             return (
               <TacoPlaceMarker
@@ -119,7 +110,15 @@ class Map extends React.Component {
           >
             <button
               id="btn-location"
-              onClick={() => this.map.panTo(this.state.userLocation)}
+              onClick={() => {
+                if (this.state.userLocation === null) {
+                  alert(
+                    'Your browser is not allowing TacoPlaces to know your location, turn on location services to allow TacoPlaces to locate you.'
+                  );
+                } else {
+                  this.map.panTo(this.state.userLocation);
+                }
+              }}
             >
               {location}
             </button>

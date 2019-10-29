@@ -320,6 +320,17 @@ a:hover {
   align-items: center;
 }
 
+.user-location {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 9px;
+  width: 9px;
+  background-color: #4285f4;
+  border: solid #fff 2px;
+  border-radius: 50%;
+  box-shadow: rgba(6, 126, 255, 0.2) 0px 0px 0px 5px;
+}
+
 /*************************************/
 /**************   ADD   **************/
 /*************************************/

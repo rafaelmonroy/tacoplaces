@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
   newTacoPlace
     .save()
     .then(tacoPlace => res.json(tacoPlace))
-    .catch(err => res.send('error'));
+    .catch(err => console.log(err));
 });
 
 module.exports = router;
