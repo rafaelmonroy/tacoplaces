@@ -25,13 +25,11 @@ export class AddTacoPlace extends Component {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
-        },
-        redirect: 'manual'
+        }
       };
       try {
         const fetchResponse = await fetch('/api/tacoplaces', settings);
         const json = await fetchResponse.json();
-        Response.redirect('/list');
         return json;
       } catch (err) {
         console.log(err);
