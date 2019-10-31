@@ -25,12 +25,11 @@ export class AddTacoPlace extends Component {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
-        }
+        },
+        redirect: 'follow'
       };
       try {
-        const fetchResponse = await fetch('/api/tacoplaces', settings);
-        const json = await fetchResponse.json();
-        return json;
+        await fetch('/api/tacoplaces', settings);
       } catch (err) {
         console.log(err);
       }
@@ -41,7 +40,11 @@ export class AddTacoPlace extends Component {
   render() {
     return (
       <div className="add-page">
-        <form onSubmit={this.handleSubmit}>
+        <form
+          onSubmit={this.handleSubmit}
+          method="post"
+          action="/api/tacoplaces/"
+        >
           <label>
             Name:
             <input
