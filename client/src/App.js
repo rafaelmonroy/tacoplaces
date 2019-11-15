@@ -3,7 +3,7 @@ import './App.css';
 import Map from './components/pages/Map';
 import Navbar from './components/header-n-navbar/Navbar';
 import HeaderBar from './components/header-n-navbar/HeaderBar';
-import AddTacoPlace from './components/pages/AddTacoPlace';
+import AddTacoPlace from './components/pages/Add';
 import List from './components/pages/List';
 import Info from './components/pages/Info';
 

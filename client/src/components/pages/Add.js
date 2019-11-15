@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class AddTacoPlace extends Component {
+export class Add extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +16,8 @@ export class AddTacoPlace extends Component {
     });
   };
 
-  handleSubmit = () => {
+  handleSubmit = e => {
+    e.preventDefault();
     const postTacoPlace = async () => {
       const data = { name: this.state.name, address: this.state.address };
       const settings = {
@@ -70,4 +71,4 @@ export class AddTacoPlace extends Component {
   }
 }
 
-export default AddTacoPlace;
+export default Add;

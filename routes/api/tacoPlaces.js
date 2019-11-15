@@ -34,7 +34,6 @@ router.post('/', (req, res) => {
 
   newTacoPlace
     .save()
-    .then(tacoPlace => res.json(tacoPlace))
     .then(res.redirect('/'))
     .catch(err => console.log('server', err));
 });

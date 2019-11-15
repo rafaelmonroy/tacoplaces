@@ -63,18 +63,6 @@ body {
   align-self: center;
 }
 
-#sign-out {
-  align-self: center;
-  justify-self: end;
-  font-size: 12px;
-  margin-right: 10px;
-  border: #df1f27 solid 0.5px;
-  color: #fff;
-  padding: 2px 4px;
-  background-color: #df1f27;
-  border-radius: 5px;
-}
-
 /*************************************/
 /***********   NAVBAR   **************/
 /*************************************/
@@ -339,6 +327,19 @@ a:hover {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.add-page > form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  padding: 10px;
+}
+
+#add {
+  padding: 20px;
 }
 
 /*************************************/
