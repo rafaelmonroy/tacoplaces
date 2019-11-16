@@ -1,10 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
 
 const tacoPlaces = require('./routes/api/tacoPlaces');
 
-//body parser middleware init
+//body parser cors middleware init
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

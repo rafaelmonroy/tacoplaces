@@ -20,13 +20,14 @@ router.use(function(req, res, next) {
 router.get('/', (req, res) => {
   TacoPlace.find()
     .sort({ date: -1 })
-    .then(tacoPlaces => res.json(tacoPlaces));
+    .then(tacoPlaces => res.json(tacoPlaces))
+    .catch(err => console.log('server error GET =>', err));
 });
 
 // @route POST api/tacoPlaces
 // @desp create new tacoPlace
 // @access Public
-router.post('/', (req, res) => {
+router.post('/add', (req, res) => {
   const newTacoPlace = new TacoPlace({
     name: req.body.name,
     address: req.body.address
@@ -34,8 +35,9 @@ router.post('/', (req, res) => {
 
   newTacoPlace
     .save()
-    .then(res.redirect('/'))
-    .catch(err => console.log('server', err));
+    .then(json => console.log('server successfully posted data'))
+    .then(res.end())
+    .catch(err => console.log('server error POST =>', err));
 });
 
 module.exports = router;

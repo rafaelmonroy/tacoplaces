@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export class Add extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      address: ''
+      address: '',
+      added: false
     };
   }
 
@@ -18,34 +20,28 @@ export class Add extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const postTacoPlace = async () => {
-      const data = { name: this.state.name, address: this.state.address };
-      const settings = {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        redirect: 'follow'
-      };
-      try {
-        await fetch('/api/tacoplaces', settings);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    postTacoPlace();
+
+    const data = { name: this.state.name, address: this.state.address };
+
+    axios
+      .post('/api/tacoplaces/add', data)
+      .then(response => console.log('client successfully posted'))
+      .then(() => this.setState({ added: true }))
+      .catch(err => console.log('client error =>', err));
   };
 
   render() {
+    if (this.state.added === true) {
+      return (
+        <div className="added">
+          Thank you for contributing, your TacoPlace has been added!{' '}
+          <a href="/">Click Here</a> to see it in the map!
+        </div>
+      );
+    }
     return (
       <div className="add-page">
-        <form
-          onSubmit={this.handleSubmit}
-          method="post"
-          action="/api/tacoplaces/"
-        >
+        <form onSubmit={this.handleSubmit}>
           <label>
             Name:
             <input

@@ -7,6 +7,7 @@ const spinner = <FontAwesomeIcon icon={faSpinner} />;
 const star = <FontAwesomeIcon icon={faStar} />;
 
 export class List extends Component {
+  componentDidMount() {}
   render() {
     return (
       <div>
