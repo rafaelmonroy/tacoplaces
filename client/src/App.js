@@ -29,7 +29,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const requestData = async () => {
-      const response = await fetch('/api/tacoplaces', {
+      const response = await fetch('http://localhost:5000/api/tacoplaces', {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json'
