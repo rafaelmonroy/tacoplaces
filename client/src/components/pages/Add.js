@@ -7,21 +7,32 @@ export class Add extends Component {
     this.state = {
       name: '',
       address: '',
+      rating: [],
       added: false
     };
   }
 
   handleChange = event => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
+    if (value !== 'rating') {
+      this.setState({
+        [name]: value
+      });
+    } else {
+      this.setState({
+        [name]: [value]
+      });
+    }
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
-    const data = { name: this.state.name, address: this.state.address };
+    const data = {
+      name: this.state.name,
+      address: this.state.address,
+      rating: this.state.rating
+    };
 
     axios
       .post('/api/tacoplaces/add', data)
@@ -45,6 +56,7 @@ export class Add extends Component {
           <label>
             Name:
             <input
+              className="input-boxes"
               type="text"
               name="name"
               value={this.state.name}
@@ -54,11 +66,27 @@ export class Add extends Component {
           <label>
             Address
             <input
+              className="input-boxes"
               type="text"
               name="address"
               value={this.state.address}
               onChange={this.handleChange}
             />
+          </label>
+          <label>
+            Rating
+            <select
+              className="input-boxes"
+              name="rating"
+              value={this.state.rating}
+              onChange={this.handleChange}
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
           </label>
           <input type="submit" value="Submit" />
         </form>

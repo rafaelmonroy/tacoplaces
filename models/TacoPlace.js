@@ -11,6 +11,10 @@ const TacoPlaceSchema = new Schema({
     type: String,
     required: true
   },
+  rating: {
+    type: Array,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now

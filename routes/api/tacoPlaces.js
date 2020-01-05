@@ -6,9 +6,9 @@ const TacoPlace = require('../../models/TacoPlace');
 
 //CORS
 router.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
   res.header(
     'Access-Control-Allow-Headers',
+    '*',
     'Origin, X-Requested-With, Content-Type, Accept'
   );
   next();
@@ -30,7 +30,8 @@ router.get('/', (req, res) => {
 router.post('/add', (req, res) => {
   const newTacoPlace = new TacoPlace({
     name: req.body.name,
-    address: req.body.address
+    address: req.body.address,
+    rating: req.body.rating
   });
 
   newTacoPlace

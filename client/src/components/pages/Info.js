@@ -11,11 +11,11 @@ export default class Info extends Component {
     return (
       <div className="info-page">
         <div className="about">
-          <h1 id="about-intro">
+          <p>
             TacoPlaces is a website application that allows you to{' '}
             <span>find the best taco places near you </span>that you don’t know
             about yet!{' '}
-          </h1>{' '}
+          </p>{' '}
           <p>
             <br />
             There are many taco restaurants, which will remain nameless, that

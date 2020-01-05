@@ -29,10 +29,7 @@ export default class TacoPlace extends Component {
                     <p className="profile-address">{place.address}</p>
                     <button className="directions">GET DIRECTIONS</button>
                     <p className="profile-ratings">
-                      {star}
-                      {star}
-                      {star}
-                      {star}
+                      {place.rating[0]}
                       {star}
                     </p>
                     <p className="reviews-title">REVIEWS</p>
