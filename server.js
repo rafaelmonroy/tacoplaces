@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //DB config
-const db = require('./config/keys').process.env.mongoURL;
+const db = require('./config/keys').MONGODB_URL;
 
 //connect to mongo
 mongoose
