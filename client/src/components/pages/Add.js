@@ -35,7 +35,7 @@ export class Add extends Component {
     };
 
     axios
-      .post('/api/tacoplaces/add', data)
+      .post('http://localhost:5000/api/tacoplaces/add', data)
       .then(response => console.log('client successfully posted'))
       .then(() => this.setState({ added: true }))
       .catch(err => console.log('client error =>', err));
