@@ -15,7 +15,7 @@ const pin = <FontAwesomeIcon icon={faMapMarkerAlt} />;
 const location = <FontAwesomeIcon icon={faLocationArrow} />;
 
 //google api key
-const gKey = require('../../config/keys').googleKey;
+const gKey = process.env.REACT_APP_GKEY;
 
 //user marker and style
 const UserLocation = ({ text }) => <div className="user-location">{text}</div>;

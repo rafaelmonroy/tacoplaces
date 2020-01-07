@@ -3,7 +3,8 @@
 /node_modules
 
 # private
-
+/config
+.env 
 
 # misc
 .DS_Store
@@ -13,9 +14,6 @@
 /client/node_modules
 /client/.pnp
 /client/.pnp.js
-
-# private
-
 
 # testing
 /client/coverage

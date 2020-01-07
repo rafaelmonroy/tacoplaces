@@ -16,7 +16,8 @@ import TacoPlace from './components/pages/TacoPlace';
 const spinner = <FontAwesomeIcon icon={faSpinner} />;
 
 //google api key
-const gKey = require('./config/keys').googleKey;
+const gKey = process.env.REACT_APP_GKEY;
+console.log(gKey);
 
 class App extends React.Component {
   constructor(props) {
