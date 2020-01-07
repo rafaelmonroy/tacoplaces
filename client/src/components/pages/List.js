@@ -24,10 +24,7 @@ export class List extends Component {
                 <p className="place-info">{place.address}</p>
                 <div className="ratings-details">
                   <p className="ratings">
-                    {star}
-                    {star}
-                    {star}
-                    {star}
+                  	{place.rating[0]}
                     {star}
                   </p>
                   <NavLink
