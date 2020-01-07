@@ -29,15 +29,12 @@ class App extends React.Component {
 
   componentDidMount() {
     const requestData = async () => {
-      const response = await fetch(
-        'https://secret-sea-51339.herokuapp.com/api/tacoplaces',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-          }
+      const response = await fetch('/api/tacoplaces', {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
         }
-      );
+      });
       const json = await response.json();
       const newData = await [...json];
       for (let i = 0; i < newData.length; i++) {

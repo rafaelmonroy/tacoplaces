@@ -35,7 +35,7 @@ export class Add extends Component {
     };
 
     axios
-      .post('https://secret-sea-51339.herokuapp.com/api/tacoplaces/add', data)
+      .post('/api/tacoplaces/add', data)
       .then(response => console.log('client successfully posted'))
       .then(() => this.setState({ added: true }))
       .catch(err => console.log('client error =>', err));
