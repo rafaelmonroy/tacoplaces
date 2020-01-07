@@ -1,7 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
+
 const app = express();
+const mongoose = require('mongoose');
+require('dotenv').config();
+
 const path = require('path');
 
 const tacoPlaces = require('./routes/api/tacoPlaces');
@@ -12,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //DB config
-const db = require('./config/keys').MONGODB_URL;
+const db = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@tacoplaces-c1azi.mongodb.net/data?retryWrites=true&w=majority`;
 
 //connect to mongo
 mongoose
